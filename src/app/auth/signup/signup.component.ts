@@ -5,6 +5,8 @@ import { AuthService } from '../auth.service';
 import { UIService } from '../../shared/ui.service';
 import { Subscription } from "rxjs";
 
+import { AuthModule } from "../auth.module";
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -34,6 +36,8 @@ export class SignupComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.loadingSubs.unsubscribe();
+    if (this.loadingSubs) {
+      this.loadingSubs.unsubscribe();
+    }
   }
 }
