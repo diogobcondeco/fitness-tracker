@@ -5,15 +5,18 @@ import {
 } from "@ngrx/store";
 import * as fromUi from "./shared/ui.reducer";
 import * as fromAuth from "./auth/auth.reducer";
+import * as fromTraining from "./training/training.reducer";
 
 export interface State {
   ui: fromUi.State;
   auth: fromAuth.State;
+  training: fromTraining.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
   ui: fromUi.uiReducer,
-  auth: fromAuth.authReducer
+  auth: fromAuth.authReducer,
+  training: fromTraining.trainingReducer
 };
 
 export const getUiState = createFeatureSelector<fromUi.State>("ui");
