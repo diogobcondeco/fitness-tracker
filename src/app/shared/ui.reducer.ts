@@ -1,5 +1,6 @@
-import { Action } from "@ngrx/store";
-import { UIActions, START_LOADING, STOP_LOADING } from "./ui.actions";
+import { Action } from '@ngrx/store';
+
+import { UIActions, START_LOADING, STOP_LOADING } from './ui.actions';
 
 export interface State {
   isLoading: boolean;
@@ -19,8 +20,9 @@ export function uiReducer(state = initialState, action: UIActions) {
       return {
         isLoading: false
       };
-    default:
+    default: {
       return state;
+    }
   }
 }
 

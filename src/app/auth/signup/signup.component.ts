@@ -1,19 +1,16 @@
-import { Component, OnInit } from "@angular/core";
-import { NgForm } from "@angular/forms";
-import { AuthData } from "../auth-data.model";
-import { AuthService } from "../auth.service";
-// import { UIService } from "../../shared/ui.service";
-import { Observable } from "rxjs";
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 
-import * as fromRoot from "../../app.reducer";
-import { Store } from "@ngrx/store";
-
-import { AuthModule } from "../auth.module";
+import { AuthService } from '../auth.service';
+import { UIService } from '../../shared/ui.service';
+import * as fromRoot from '../../app.reducer';
 
 @Component({
-  selector: "app-signup",
-  templateUrl: "./signup.component.html",
-  styleUrls: ["./signup.component.css"]
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
   maxDate;
@@ -21,7 +18,7 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    // private uiService: UIService,
+    private uiService: UIService,
     private store: Store<fromRoot.State>
   ) {}
 
@@ -32,7 +29,6 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form);
     this.authService.registerUser({
       email: form.value.email,
       password: form.value.password

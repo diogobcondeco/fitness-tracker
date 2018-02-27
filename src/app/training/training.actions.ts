@@ -1,10 +1,11 @@
-import { Action } from "@ngrx/store";
-import { Exercise } from "./exercise.model";
+import { Action } from '@ngrx/store';
 
-export const SET_AVAILABLE_TRAININGS = "[Training] Set Available Trainings";
-export const SET_FINISHED_TRAININGS = "[Training] Set Finished Trainings";
-export const START_TRAINING = "[Training] Start Training";
-export const STOP_TRAINING = "[Training] Stop Training";
+import { Exercise } from './exercise.model';
+
+export const SET_AVAILABLE_TRAININGS = '[Training] Set Available Trainings';
+export const SET_FINISHED_TRAININGS = '[Training] Set Finished Trainings';
+export const START_TRAINING = '[Training] Start Training';
+export const STOP_TRAINING = '[Training] Stop Training';
 
 export class SetAvailableTrainings implements Action {
   readonly type = SET_AVAILABLE_TRAININGS;
@@ -21,7 +22,7 @@ export class SetFinishedTrainings implements Action {
 export class StartTraining implements Action {
   readonly type = START_TRAINING;
 
-  constructor(public payload: Exercise[]) {}
+  constructor(public payload: string) {}
 }
 
 export class StopTraining implements Action {
